@@ -1,25 +1,48 @@
-import logo from "./logo.svg";
+import { useCallback, useEffect, useState } from "react";
 import "./App.css";
+import BgCanvas, { IAction } from "./components/bgCanvas/BgCanvas";
+import Descriptions from "./components/description/Descriptions";
 
-const App = () => {
+function App() {
+  const [pressedKey, setPressedKey] = useState("");
+  const [canvasEvent, setCanvasEvent] = useState<IAction>({ type: null });
+
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    const key = e.key;
+    // console.log({ key });
+    setPressedKey(key);
+
+    switch (key) {
+      case "d":
+        setCanvasEvent({ type: "cameraDown" });
+        break;
+      case "u":
+        setCanvasEvent({ type: "cameraUp" });
+        break;
+      case "l":
+        setCanvasEvent({ type: "log", payload: "HelloReact" });
+        break;
+      // case "c":
+      //   setCanvasEvent({ type: "changeRotateDirection" });
+      //   break;
+      default:
+        setCanvasEvent({ type: null });
+    }
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleKeyDown]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BgCanvas action={canvasEvent}></BgCanvas>
+      <Descriptions pressed={pressedKey} />
     </div>
   );
-};
+}
 
 export default App;
