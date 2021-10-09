@@ -37,10 +37,10 @@ const BgCanvass = forwardRef<IHandler, IProps>((props, ref) => {
     ref,
     () => ({
       cameraUp: () => {
-        glContents?.current?.cameraUp();
+        glContents.current?.cameraUp();
       },
       cameraDown: () => {
-        glContents?.current?.cameraDown();
+        glContents.current?.cameraDown();
       },
     }),
     []
