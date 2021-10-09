@@ -3,7 +3,6 @@ import * as THREE from 'three';
 const DIRECTIONS: ['x', 'y', 'z'] = ['x', 'y', 'z'];
 
 export default class GlContents {
-  public isLoading: boolean;
   public resolution: { width: number, height: number };
   public renderer: THREE.WebGLRenderer | null;
   public scene: THREE.Scene;
@@ -14,7 +13,6 @@ export default class GlContents {
 
   constructor(element: HTMLCanvasElement) {
     console.log('THREE JS CREATE!');
-    this.isLoading = true;
     this.resolution = {
       width: window.innerWidth,
       height: window.innerHeight
@@ -39,10 +37,6 @@ export default class GlContents {
     this.directionNumber = 1;
     this.rotateDirection = DIRECTIONS[this.directionNumber];
     this.bind();
-    setTimeout(() => {
-      console.log('change loading state');
-      this.isLoading = false;
-    }, 3000);
   }
 
   render() {
