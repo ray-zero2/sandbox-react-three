@@ -37,7 +37,7 @@ const Descriptions: VFC<IProps> = (props) => {
           ))}
         </ul>
       </section>
-      {props.pressed && <p className="key-name">keydown: "{props.pressed}"</p>}
+      <p className="key-name">keydown: "{props.pressed}"</p>
     </section>
   );
 };

@@ -47,12 +47,12 @@ export default class GlContents {
   }
 
   cameraUp() {
-    this.camera.position.add(new THREE.Vector3(0, 10, 0));
+    this.camera.position.add(new THREE.Vector3(0, 100, 0));
     this.camera.lookAt(0, 0, 0);
   }
 
   cameraDown() {
-    this.camera.position.add(new THREE.Vector3(0, -10, 0));
+    this.camera.position.add(new THREE.Vector3(0, -100, 0));
     this.camera.lookAt(0, 0, 0);
   }
 

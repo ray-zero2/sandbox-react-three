@@ -24,12 +24,11 @@ const BgCanvass = forwardRef<IHandler, IProps>((props, ref) => {
 
   useLayoutEffect(() => {
     console.log("useLayoutEffect");
-    if (!canvasElemRef.current) return;
 
     if (instanceExists.current) console.warn("danger!");
     instanceExists.current = true;
 
-    glContents.current = new GlContents(canvasElemRef.current);
+    glContents.current = new GlContents(canvasElemRef.current!);
     glContents.current.render();
   }, []);
 
