@@ -32,7 +32,7 @@ const BgCanvass = forwardRef<IHandler, IProps>((props, ref) => {
     glContents.current.render();
   }, []);
 
-  useImperativeHandle<IHandler, IHandler>(
+  useImperativeHandle(
     ref,
     () => ({
       cameraUp: () => {
