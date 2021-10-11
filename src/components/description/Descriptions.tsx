@@ -23,7 +23,7 @@ interface IProps {
 const Descriptions: VFC<IProps> = (props) => {
   return (
     <section className="wrapper">
-      <h1 className="title">React & THREE.js TEST</h1>
+      <h1 className="title">React & Three.js Test</h1>
       <section className="contents">
         <h2 className="howto-title">How To Use</h2>
         <ul className="howto-list">

@@ -17,10 +17,10 @@ export interface IHandler {
 interface IProps {}
 
 const BgCanvass = forwardRef<IHandler, IProps>((props, ref) => {
-  console.log("canvas component was rendered");
+  console.log("rendering: Canvas Component");
   const instanceExists = useRef(false); //デバッグ用。外部クラスをインスタンス化済みかどうか。
   const canvasElemRef = useRef<HTMLCanvasElement>(null);
-  const glContents = useRef<GlContents>();
+  const glContents = useRef<GlContents | null>(null);
 
   useLayoutEffect(() => {
     console.log("useLayoutEffect");

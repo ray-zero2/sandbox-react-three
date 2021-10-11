@@ -9,6 +9,7 @@ function App() {
 
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     const key = e.key;
+    console.log(`press: ${key}`);
     setPressedKey(key);
 
     switch (key) {
